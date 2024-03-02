@@ -1,18 +1,17 @@
 import React from 'react';
-import { Quizz } from './types';
 
-export const useApi = () => {
-    const [response, setResponse] = React.useState<Quizz | undefined>(undefined);
+export const useApi = <T>() => {
+    const [response, setResponse] = React.useState<T | undefined>(undefined);
 
-    React.useEffect(() => {
-        fetch('https://opentdb.com/api.php?amount=10')
+    const fetchData = (url: string) => {
+        fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 if (data.response_code === 0) {
-                    setResponse(data as Quizz);
+                    setResponse(data as T);
                 }
             });
-    }, []);
+    }
 
-    return response;
+    return {response, fetchData};
 };
