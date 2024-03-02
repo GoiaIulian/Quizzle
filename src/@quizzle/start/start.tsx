@@ -1,7 +1,7 @@
 import classes from './start.module.css';
 
 interface Props {
-    getQuiz: Function;
+    getQuiz: (url: string) => void;
 }
 
 const Start = ({ getQuiz }: Props) => {
