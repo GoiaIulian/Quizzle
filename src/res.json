@@ -1,0 +1,93 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Geography",
+            "question": "What is the land connecting North America and South America?",
+            "correct_answer": "Isthmus of Panama",
+            "incorrect_answers": ["Isthmus of Suez", "Urals", "Australasia"]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Entertainment: Film",
+            "question": "What was the name of the actor who played Leatherface in the 1974 horror film, The Texas Chainsaw Massacre?",
+            "correct_answer": "Gunnar Hansen",
+            "incorrect_answers": ["Edwin Neal", "John Dugan", "Joe Bill Hogan"]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Entertainment: Musicals &amp; Theatres",
+            "question": "What play is the quote &quot;Hell is other people&quot; from?",
+            "correct_answer": "No Exit",
+            "incorrect_answers": [
+                "The Devil and the Good Lord",
+                "The Condemned of Altona",
+                "The Flies"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Geography",
+            "question": "What is the capital of Australia?",
+            "correct_answer": "Canberra",
+            "incorrect_answers": ["Sydney", "Melbourne", "Brisbane"]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Entertainment: Film",
+            "question": "What is the name of the Artificial Intelligence system in the 1983 film, &quot;WarGames&quot;?",
+            "correct_answer": "War Operation Plan Response",
+            "incorrect_answers": [
+                "Self Evolving Thought Helix",
+                "Master Control Program",
+                "West Campus Analog Computer"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "medium",
+            "category": "Science: Computers",
+            "question": "Approximately how many Apple I personal computers were created?",
+            "correct_answer": "200",
+            "incorrect_answers": ["100", "500", "1000"]
+        },
+        {
+            "type": "boolean",
+            "difficulty": "hard",
+            "category": "Science: Mathematics",
+            "question": "If you could fold a piece of paper in half 50 times, its&#039; thickness will be 3/4th the distance from the Earth to the Sun.",
+            "correct_answer": "True",
+            "incorrect_answers": ["False"]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Entertainment: Television",
+            "question": "What was the date of original airing of the pilot episode of My Little Pony: Friendship is Magic?",
+            "correct_answer": "October 10th, 2010",
+            "incorrect_answers": ["November 6th, 2010", "April 14th, 1984", "May 18th, 2015"]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Science &amp; Nature",
+            "question": "What is considered the rarist form of color blindness?",
+            "correct_answer": "Blue",
+            "incorrect_answers": ["Red", "Green", "Purple"]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "hard",
+            "category": "Entertainment: Japanese Anime &amp; Manga",
+            "question": "Which one of these characters is from &quot;Legendz : Tale of the Dragon Kings&quot;?",
+            "correct_answer": "Shiron",
+            "incorrect_answers": ["Jack", "Axia", "Drum"]
+        }
+    ]
+}
