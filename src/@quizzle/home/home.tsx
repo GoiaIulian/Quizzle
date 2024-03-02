@@ -3,12 +3,11 @@ import { Quizz, useApi } from '@quizzle/api';
 import { Start } from '@quizzle/start';
 
 const Home = () => {
-    const { response } = useApi<Quizz>();
+    const { response, fetchData } = useApi<Quizz>();
 
     return (
         <div className={classes.root}>
-            <Start />
-            {response ? <div>{JSON.stringify(response)}</div> : null}
+            {response ? <div>{JSON.stringify(response)}</div> : <Start getQuiz={fetchData} />}
         </div>
     );
 };
