@@ -1,0 +1,74 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    color: var(--mantine-color-text-1);
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.subHeader {
+    color: var(--mantine-color-text-1);
+    font-size: large;
+    font-weight: 200;
+    opacity: 0.5;
+}
+
+.circleButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.circleButton:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.text {
+    z-index: 1;
+    color: var(--mantine-color-text-1);
+    font-size: large;
+    font-weight: 700;
+}
+
+.buttonBg1 {
+    position: absolute;
+    background-color: var(--mantine-color-primary-0);
+    border-radius: 50%;
+    padding: 50px;
+}
+
+.buttonBg2 {
+    position: absolute;
+    background-color: var(--mantine-color-primary-0);
+    border-radius: 50%;
+    padding: 55px;
+    opacity: 0.5;
+    animation: increase 0.7s linear infinite alternate;
+}
+
+.buttonBg3 {
+    position: absolute;
+    background-color: var(--mantine-color-primary-0);
+    border-radius: 50%;
+    padding: 63px;
+    opacity: 0.5;
+    animation: increase 0.7s linear 0.2s infinite alternate;
+}
+
+@keyframes increase {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export const useApi = <T>() => {
     const [response, setResponse] = React.useState<T | undefined>(undefined);
@@ -11,7 +11,7 @@ export const useApi = <T>() => {
                     setResponse(data as T);
                 }
             });
-    }
+    };
 
-    return {response, fetchData};
+    return { response, fetchData };
 };

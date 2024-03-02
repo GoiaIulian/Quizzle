@@ -1,22 +1,16 @@
-import React from "react";
-import classes from "./home.module.css";
+import classes from './home.module.css';
+import { Quizz, useApi } from '@quizzle/api';
+import { Start } from '@quizzle/start';
 
 const Home = () => {
-  return (
-    <div className={classes.root}>
-      <div className={classes.title}>
-        <p className={classes.header}>Welcome</p>
-        <p className={classes.subHeader}>click to start a quiz</p>
-      </div>
+    const { response } = useApi<Quizz>();
 
-      <div className={classes.circleButton}>
-        <div className={classes.buttonBg1}></div>
-        <div className={classes.buttonBg2}></div>
-        <div className={classes.buttonBg3}></div>
-        <p className={classes.text}>Quizzle</p>
-      </div>
-    </div>
-  );
+    return (
+        <div className={classes.root}>
+            <Start />
+            {response ? <div>{JSON.stringify(response)}</div> : null}
+        </div>
+    );
 };
 
 export default Home;
