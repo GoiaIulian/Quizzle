@@ -2,15 +2,17 @@ import * as React from 'react';
 import { Question } from '@quizzle/api';
 import classes from './quiz.module.css';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io';
+import useQuiz from './useQuiz';
+import { QuestionDisplay } from '@quizzle/question';
 
 interface Props {
-    questions: [Question];
+    quiz: Question[];
 }
 
-const Quiz = ({ questions }: Props) => {
-    const [questionNumber, setQuestionNumber] = React.useState<number>(0);
+const Quiz = ({ quiz }: Props) => {
+    const { questions, checkAnswer, setAnswer } = useQuiz({ quiz: quiz });
 
-    const question = questions[questionNumber];
+    const [questionNumber, setQuestionNumber] = React.useState<number>(0);
 
     const nextQuestion = () => {
         setQuestionNumber((prev) => (prev < questions.length - 1 ? prev + 1 : 0));
@@ -19,7 +21,7 @@ const Quiz = ({ questions }: Props) => {
         setQuestionNumber((prev) => (prev > 0 ? prev - 1 : questions.length - 1));
     };
 
-    if (questions === undefined) {
+    if (quiz === undefined) {
         return null;
     }
 
@@ -28,15 +30,12 @@ const Quiz = ({ questions }: Props) => {
             <p>
                 {questionNumber + 1}/{questions.length}
             </p>
-            <div className={classes.question}>
-                <p>{question.question}</p>
-                <ul className={classes.options}>
-                    {question.incorrect_answers.map((option, index) => (
-                        <li key={index}>{option}</li>
-                    ))}
-                    <li>{question.correct_answer}</li>
-                </ul>
-            </div>
+            <QuestionDisplay
+                question={questions[questionNumber]}
+                questionIndex={questionNumber}
+                checkAnswer={checkAnswer}
+                setAnswer={setAnswer}
+            />
             <div className={classes.navigation}>
                 <IoIosArrowDropleftCircle
                     size={25}
