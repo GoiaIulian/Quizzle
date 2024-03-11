@@ -16,7 +16,7 @@ const Home = () => {
 
     return (
         <div className={classes.root}>
-            <Quiz questions={response.results} />
+            <Quiz quiz={response.results} />
         </div>
     );
 };

@@ -1,0 +1,1 @@
+export { randomNumberInInterval } from './random';

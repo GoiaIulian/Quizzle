@@ -1,6 +1,6 @@
 export interface Quizz {
     response_code: number;
-    results: [Question];
+    results: Question[];
 }
 
 export interface Question {
@@ -9,7 +9,8 @@ export interface Question {
     category: string;
     question: string;
     correct_answer: string;
-    incorrect_answers: [string];
+    incorrect_answers: string[];
+    answers: string[] | undefined;
 }
 
 export enum AnswerType {
