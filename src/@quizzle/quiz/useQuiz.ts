@@ -15,9 +15,18 @@ const useQuiz = ({ quiz }: Input) => {
             question.incorrect_answers.length + 1,
         );
         const answers = [...question.incorrect_answers];
-        answers.splice(rightAnswerPosition, 0, `${question.correct_answer} *`);
+        answers.splice(rightAnswerPosition, 0, `${question.correct_answer}`);
 
         return answers;
+    };
+
+    const checkAnswer = (questionIndex: number, answer: string): boolean =>
+        questions[questionIndex].correct_answer === answer;
+
+    const setAnswer = (questionIndex: number, answer: string) => {
+        const newQuestions = [...questions];
+        newQuestions[questionIndex] = { ...questions[questionIndex], selectedAnswer: answer };
+        setQuestions(newQuestions);
     };
 
     React.useMemo(() => {
@@ -27,6 +36,8 @@ const useQuiz = ({ quiz }: Input) => {
 
     return {
         questions,
+        setAnswer,
+        checkAnswer,
     };
 };
 

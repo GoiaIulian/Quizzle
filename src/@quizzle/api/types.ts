@@ -11,6 +11,7 @@ export interface Question {
     correct_answer: string;
     incorrect_answers: string[];
     answers: string[] | undefined;
+    selectedAnswer: string | undefined;
 }
 
 export enum AnswerType {

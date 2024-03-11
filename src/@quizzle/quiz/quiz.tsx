@@ -3,17 +3,16 @@ import { Question } from '@quizzle/api';
 import classes from './quiz.module.css';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io';
 import useQuiz from './useQuiz';
+import { QuestionDisplay } from '@quizzle/question';
 
 interface Props {
     quiz: Question[];
 }
 
 const Quiz = ({ quiz }: Props) => {
-    const { questions } = useQuiz({ quiz: quiz });
+    const { questions, checkAnswer, setAnswer } = useQuiz({ quiz: quiz });
 
     const [questionNumber, setQuestionNumber] = React.useState<number>(0);
-
-    const question = questions[questionNumber];
 
     const nextQuestion = () => {
         setQuestionNumber((prev) => (prev < questions.length - 1 ? prev + 1 : 0));
@@ -31,12 +30,12 @@ const Quiz = ({ quiz }: Props) => {
             <p>
                 {questionNumber + 1}/{questions.length}
             </p>
-            <div className={classes.question}>
-                <p>{question.question}</p>
-                <ul className={classes.options}>
-                    {question.answers?.map((option, index) => <li key={index}>{option}</li>)}
-                </ul>
-            </div>
+            <QuestionDisplay
+                question={questions[questionNumber]}
+                questionIndex={questionNumber}
+                checkAnswer={checkAnswer}
+                setAnswer={setAnswer}
+            />
             <div className={classes.navigation}>
                 <IoIosArrowDropleftCircle
                     size={25}
