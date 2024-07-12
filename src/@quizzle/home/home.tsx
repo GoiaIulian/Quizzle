@@ -1,10 +1,10 @@
 import classes from './home.module.css';
-import { Quizz, useApi } from '@quizzle/api';
+import { useApi } from '@quizzle/api';
 import { Quiz } from '@quizzle/quiz';
 import { Start } from '@quizzle/start';
 
 const Home = () => {
-    const { response, fetchData } = useApi<Quizz>();
+    const { response, fetchData } = useApi();
 
     if (response === undefined) {
         return (

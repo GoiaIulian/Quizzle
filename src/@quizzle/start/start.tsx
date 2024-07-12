@@ -1,12 +1,12 @@
 import classes from './start.module.css';
 
 interface Props {
-    getQuiz: (url: string) => void;
+    getQuiz: () => void;
 }
 
 const Start = ({ getQuiz }: Props) => {
     const handleClick = () => {
-        getQuiz('https://opentdb.com/api.php?amount=10');
+        getQuiz();
     };
 
     return (

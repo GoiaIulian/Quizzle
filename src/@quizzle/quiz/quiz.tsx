@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Question } from '@quizzle/api';
+import { Question } from '@quizzle/models';
 import classes from './quiz.module.css';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io';
 import useQuiz from './useQuiz';

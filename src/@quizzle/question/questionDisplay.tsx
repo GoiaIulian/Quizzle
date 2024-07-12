@@ -1,4 +1,4 @@
-import { Question } from '@quizzle/api';
+import { Question } from '@quizzle/models';
 import classes from './questionDisplay.module.css';
 
 interface Props {

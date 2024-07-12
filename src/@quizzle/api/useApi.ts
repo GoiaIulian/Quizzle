@@ -1,16 +1,15 @@
 import * as React from 'react';
+import { Api } from './api';
+import { Quizz } from '@quizzle/models';
 
-export const useApi = <T>() => {
-    const [response, setResponse] = React.useState<T | undefined>(undefined);
+export const useApi = () => {
+    const [response, setResponse] = React.useState<Quizz | undefined>(undefined);
 
-    const fetchData = (url: string) => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.response_code === 0) {
-                    setResponse(data as T);
-                }
-            });
+    const api = new Api();
+    const fetchData = () => {
+        api.fecthQuizz().then((quizz) => {
+            setResponse(quizz);
+        });
     };
 
     return { response, fetchData };

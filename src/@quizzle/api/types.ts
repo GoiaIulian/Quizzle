@@ -1,26 +1,31 @@
-export interface Quizz {
-    response_code: number;
-    results: Question[];
+export enum ApiRequestMethod {
+    GET = 'GET',
+    PUT = 'PUT',
+    POST = 'POST',
+    PATCH = 'PATCH',
+    DELETE = 'DELETE',
 }
 
-export interface Question {
-    type: AnswerType;
-    difficulty: Difficulty;
-    category: string;
-    question: string;
-    correct_answer: string;
-    incorrect_answers: string[];
-    answers: string[] | undefined;
-    selectedAnswer: string | undefined;
+export enum ApiHeaders {
+    AUTHORIZATION = 'Authorization',
+    CONTENT_TYPE = 'Content-Type',
 }
 
-export enum AnswerType {
-    multiple = 'multiple',
-    single = 'single',
+export enum ApiContentType {
+    APPLICATION_JSON = 'application/json',
+    TEXT_PLAIN = 'test/plain',
+    MULTIPART_FORM_DATA = 'multipart/form-data',
 }
 
-export enum Difficulty {
-    easy = 'easy',
-    medium = 'medium',
-    hard = 'hard',
+export class ApiError extends Error {
+    public status: number;
+
+    constructor(status: number) {
+        super();
+        this.status = status;
+    }
+
+    static isAuthError(error: ApiError) {
+        return error.status === 401 || error.status === 403;
+    }
 }

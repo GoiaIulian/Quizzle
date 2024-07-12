@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Question } from '@quizzle/api';
+import { Question } from '@quizzle/models';
 import { randomNumberInInterval } from '@quizzle/utils';
 
 interface Input {
@@ -30,6 +30,10 @@ const useQuiz = ({ quiz }: Input) => {
     };
 
     React.useMemo(() => {
+        if (!quiz) {
+            return;
+        }
+
         const newQuestions = quiz.map<Question>((q) => ({ ...q, answers: mixAnswers(q) }));
         setQuestions(newQuestions);
     }, [quiz]);
