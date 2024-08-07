@@ -9,6 +9,7 @@ export enum ApiRequestMethod {
 export enum ApiHeaders {
     AUTHORIZATION = 'Authorization',
     CONTENT_TYPE = 'Content-Type',
+    API_KEY = 'X-Api-Key',
 }
 
 export enum ApiContentType {

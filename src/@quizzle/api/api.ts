@@ -1,8 +1,9 @@
-import { Quizz } from '@quizzle/models';
+import { Question } from '@quizzle/models';
 import { ApiContentType, ApiError, ApiHeaders, ApiRequestMethod } from './types';
 
 /* eslint-disable @typescript-eslint/naming-convention */
-const BASE_URL = 'https://opentdb.com';
+const BASE_URL = 'https://quizapi.io/api/v1';
+const API_KEY = import.meta.env.VITE_QUIZZ_API_KEY;
 
 export class Api {
     private static buildUrl(path: string, params?: URLSearchParams) {
@@ -16,6 +17,7 @@ export class Api {
     private static async buildHeaders() {
         const headers = {
             [ApiHeaders.CONTENT_TYPE]: ApiContentType.APPLICATION_JSON,
+            [ApiHeaders.API_KEY]: API_KEY ? API_KEY : '',
         };
 
         return headers;
@@ -41,7 +43,7 @@ export class Api {
     private async get<T>(path: string, params?: URLSearchParams): Promise<T> {
         const response = await fetch(Api.buildUrl(path, params), {
             method: ApiRequestMethod.GET,
-            // headers: await Api.buildHeaders(),
+            headers: await Api.buildHeaders(),
         });
 
         if (!Api.isSuccessResponse(response)) {
@@ -52,6 +54,7 @@ export class Api {
     }
 
     async fecthQuizz() {
-        return await this.get<Quizz>('api.php?amount=10');
+        const result = await this.get<Question[]>('questions');
+        return result;
     }
 }
